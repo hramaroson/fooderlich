@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fooderlich/fooderlich_theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,9 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Fooderlich',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: FooderlichTheme.dark(),
       home: const MyHomePage(title: 'Fooderlich'),
     );
   }
