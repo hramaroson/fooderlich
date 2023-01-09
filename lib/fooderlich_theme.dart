@@ -22,6 +22,61 @@ class FooderlichTheme {
       fontSize: 16,
       fontWeight: FontWeight.w600,
       color: Colors.black
+    ),
+    headline6: GoogleFonts.openSans(
+      fontSize: 20,
+      fontWeight: FontWeight.w600,
+      color: Colors.black
     )
   );
+  
+  static TextTheme darkTextTheme = TextTheme(
+    bodyText1: GoogleFonts.openSans(
+      fontSize: 14,
+      fontWeight: FontWeight.w700,
+      color: Colors.white
+    ),
+    headline1: GoogleFonts.openSans(
+      fontSize: 32.0,
+      fontWeight: FontWeight.bold,
+      color: Colors.white
+    ),
+    headline2: GoogleFonts.openSans(
+      fontSize: 21,
+      fontWeight: FontWeight.w700,
+      color: Colors.white
+    ),
+    headline3: GoogleFonts.openSans(
+      fontSize: 16,
+      fontWeight: FontWeight.w600,
+      color: Colors.white
+    ),
+    headline6: GoogleFonts.openSans(
+      fontSize: 20,
+      fontWeight: FontWeight.w600,
+      color: Colors.white
+    )
+  );
+
+  static ThemeData light(){
+    return ThemeData(
+      brightness: Brightness.light,
+      appBarTheme: const AppBarTheme(
+        foregroundColor: Colors.black,
+        backgroundColor: Colors.white
+      ),
+      textTheme: lightTextTheme,
+    );
+  }
+
+  static ThemeData dark(){
+    return ThemeData(
+      brightness: Brightness.dark,
+      appBarTheme: const AppBarTheme(
+        foregroundColor: Colors.white,
+        backgroundColor: Colors.grey,
+      ),
+      textTheme: lightTextTheme,
+    );
+  }
 }
