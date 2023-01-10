@@ -17,9 +17,11 @@ class HomeState extends State<Home> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Text("Let's go cooking", 
-        style: Theme.of(context).textTheme.headline1)
-      ),
+              child: Text(
+                "Let's go cooking", 
+                style: Theme.of(context).textTheme.headline1
+              )
+            ),
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(
