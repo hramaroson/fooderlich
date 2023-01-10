@@ -11,9 +11,11 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    final theme = FooderlichTheme.dark();
+    
     return MaterialApp(
       title: 'Fooderlich',
-      theme: FooderlichTheme.dark(),
+      theme: theme,
       home: const MyHomePage(title: 'Fooderlich'),
     );
   }
@@ -34,7 +36,10 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: const Center(child: Text("Let's go cooking"))
+      body: Center(
+        child: Text("Let's go cooking", 
+        style: Theme.of(context).textTheme.headline1)
+      )
     );
   }
 }
