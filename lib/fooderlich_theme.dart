@@ -76,7 +76,7 @@ class FooderlichTheme {
         foregroundColor: Colors.white,
         backgroundColor: Colors.grey,
       ),
-      textTheme: lightTextTheme,
+      textTheme: darkTextTheme,
     );
   }
 }
