@@ -9,19 +9,27 @@ class Home extends StatefulWidget {
 }
 
 class HomeState extends State<Home> {
+  int _selectedItemIndex = 0;
 
+  static List<Widget> pages = [
+    Container(color: Colors.red,),
+    Container(color: Colors.blue),
+    Container(color: Colors.green)
+  ];
+
+  void _onItemTapped(int index){
+    setState(() {
+        _selectedItemIndex = index;
+    });
+  }
   @override
   Widget build(BuildContext context) {
      return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-              child: Text(
-                "Let's go cooking", 
-                style: Theme.of(context).textTheme.headline1
-              )
-            ),
+      body: pages[_selectedItemIndex],
+
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(
@@ -37,6 +45,8 @@ class HomeState extends State<Home> {
             label: 'Card3'
           ),
         ],
+        onTap: _onItemTapped,
+        currentIndex: _selectedItemIndex,
       ),
     );
   }
