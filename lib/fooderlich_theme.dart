@@ -61,22 +61,34 @@ class FooderlichTheme {
   static ThemeData light(){
     return ThemeData(
       brightness: Brightness.light,
+
       appBarTheme: const AppBarTheme(
         foregroundColor: Colors.black,
         backgroundColor: Colors.white
       ),
+
       textTheme: lightTextTheme,
+
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData( 
+        selectedItemColor: Colors.green,
+      )
     );
   }
 
   static ThemeData dark(){
     return ThemeData(
       brightness: Brightness.dark,
+
       appBarTheme: const AppBarTheme(
         foregroundColor: Colors.white,
         backgroundColor: Colors.grey,
       ),
+
       textTheme: darkTextTheme,
+      
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData( 
+        selectedItemColor: Colors.green,
+      )
     );
   }
 }
