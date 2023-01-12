@@ -25,6 +25,28 @@ class Card1 extends StatelessWidget{
             Text(
               "Editor's choice",
               style: FooderlichTheme.darkTextTheme.bodyText1),
+            Positioned(
+              top: 20,
+              child: Text(
+                "The Art of Dough",
+                style: FooderlichTheme.darkTextTheme.headline2,
+              )
+            ),
+            Positioned(
+              bottom: 30,
+              right: 0,
+              child: Text( 
+                "Learn the perfect bread",
+                style: FooderlichTheme.darkTextTheme.bodyText1
+              )
+            ),
+            Positioned(
+              bottom: 10,
+              right: 0,
+              child: Text(
+                "Ray Wenderlich",
+                style: FooderlichTheme.darkTextTheme.bodyText1
+              ))
           ],
         )
       ),
