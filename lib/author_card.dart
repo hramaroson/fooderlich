@@ -19,6 +19,7 @@ class AuthorCard extends StatelessWidget{
     return Container(
       padding: const EdgeInsets.all(16),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           CircleImage(
             imageRadius: 28,
