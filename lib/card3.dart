@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:fooderlich/fooderlich_theme.dart';
 
@@ -33,6 +34,7 @@ class Card3 extends StatelessWidget{
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  //Header
                   const Icon(
                     Icons.book,
                     color: Colors.white,
@@ -44,6 +46,65 @@ class Card3 extends StatelessWidget{
                     style: FooderlichTheme.darkTextTheme.headline2,
                   ),
                   const SizedBox(height: 30),
+                  //Chips
+                  Center( 
+                    child: Wrap(
+                      alignment: WrapAlignment.start,
+                      spacing: 12,
+                      runSpacing: 12,
+                      children: [
+                        Chip(
+                          label: Text('Healthy',
+                            style: FooderlichTheme.darkTextTheme.bodyText1),
+                          backgroundColor: Colors.black.withOpacity(0.7),
+                          onDeleted: () => log("delete"),
+                        ),
+                        Chip(
+                          label: Text('Vegan',
+                            style: FooderlichTheme.darkTextTheme.bodyText1),
+                          backgroundColor: Colors.black.withOpacity(0.7),
+                          onDeleted: () => log("delete"),
+                        ),
+                        Chip(
+                          label: Text('Carrots',
+                            style: FooderlichTheme.darkTextTheme.bodyText1),
+                          backgroundColor: Colors.black.withOpacity(0.7),
+                          onDeleted: () => log("delete"),
+                        ),
+                        Chip(
+                          label: Text('Greens',
+                            style: FooderlichTheme.darkTextTheme.bodyText1),
+                          backgroundColor: Colors.black.withOpacity(0.7),
+                          onDeleted: () => log("delete"),
+                        ),
+                        Chip(
+                          label: Text('Wheat',
+                            style: FooderlichTheme.darkTextTheme.bodyText1),
+                          backgroundColor: Colors.black.withOpacity(0.7),
+                          onDeleted: () => log("delete"),
+                        ),
+                        Chip(
+                          label: Text('Pescetarian',
+                            style: FooderlichTheme.darkTextTheme.bodyText1),
+                          backgroundColor: Colors.black.withOpacity(0.7),
+                          onDeleted: () => log("delete"),
+                        ),
+                        Chip(
+                          label: Text('Mint',
+                            style: FooderlichTheme.darkTextTheme.bodyText1),
+                          backgroundColor: Colors.black.withOpacity(0.7),
+                          onDeleted: () => log("delete"),
+                        ),
+                        Chip(
+                          label: Text('Lemonglass',
+                            style: FooderlichTheme.darkTextTheme.bodyText1),
+                          backgroundColor: Colors.black.withOpacity(0.7),
+                          onDeleted: () => log("delete"),
+                        )
+                      ],
+                    )
+                    ,
+                  ) 
                 ],
               ),
 
