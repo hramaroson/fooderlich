@@ -7,4 +7,5 @@ Fooderlich app. From the book "Flutter Apprentice (3rd Edition): Learn to build 
     <img src="screenshots/screenshot2.jpg" width = "150">
     <img src="screenshots/screenshot3.jpg" width = "150">
     <img src="screenshots/screenshot4.jpg" width = "150">
+    <img src="screenshots/screenshot5.jpg" width = "150">
 </div>
