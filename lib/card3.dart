@@ -16,8 +16,19 @@ class Card3 extends StatelessWidget{
           image: DecorationImage( 
             image: AssetImage("assets/mag2.png"),
             fit: BoxFit.cover
-          )
+          ),
+          borderRadius: BorderRadius.all(Radius.circular(10.0))
          ),
+         child: Stack(
+          children: [
+            Container( 
+              decoration: BoxDecoration(
+                color: Colors.black.withOpacity(0.6),
+                borderRadius: const BorderRadius.all(Radius.circular(10.0))
+              ),
+            )
+          ],
+         )
       )
     );
   }
