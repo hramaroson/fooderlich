@@ -1,6 +1,6 @@
 # fooderlich
 
-Fooderlich app. From the book "Flutter Apprentice (3rd Edition): Learn to build cross-platform Apps". 
+Fooderlich app. From the book "Flutter Apprentice (Third Edition): Learn to build cross-platform Apps", Michael Katz, Kevin D Moore, Vincent Ngo. 
 
 <div align="left" ; style="display: flex; flex-direction: row;" padding="10px">
     <img src="screenshots/screenshot1.jpg" width = "180">
