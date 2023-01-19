@@ -1,5 +1,6 @@
-import "package:flutter/material.dart";
-import "components/card1.dart";
+import 'package:flutter/material.dart';
+import 'screens/explore_screen.dart';
+
 import "components/card2.dart";
 import "components/card3.dart";
 
@@ -15,7 +16,7 @@ class HomeState extends State<Home> {
   int _selectedItemIndex = 0;
 
   static List<Widget> pages = [
-    const Card1(),
+    ExploreScreen(),
     const Card2(),
     const Card3()
   ];
