@@ -36,16 +36,16 @@ class HomeState extends State<Home> {
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.card_giftcard),
-            label: 'Card'
+            icon: Icon(Icons.explore),
+            label: 'Explore'
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.card_giftcard),
-            label: 'Card2'
+            icon: Icon(Icons.book),
+            label: 'Recipes'
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.card_giftcard),
-            label: 'Card3'
+            icon: Icon(Icons.list),
+            label: 'To Buy'
           ),
         ],
         onTap: _onItemTapped,
