@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fooderlich/components/components.dart';
+
 import '../models/models.dart';
 import '../api/mock_fooderlich_service.dart';
 
@@ -16,11 +18,7 @@ class ExploreScreen extends StatelessWidget {
       if(snapshot.connectionState == ConnectionState.done){
         final recipes = snapshot.data?.todayRecipes ?? [];
 
-        return Center(
-          child: Container(
-            child: const Text('Show TodayRecipeListView'),
-          ),
-        );
+        return TodayRecipeListView(recipes: recipes);
       }
       else {
         return const Center(
