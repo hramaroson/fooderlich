@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'screens/explore_screen.dart';
-
-import "components/card2.dart";
+import 'screens/recipes_screen.dart';
 import "components/card3.dart";
 
 class Home extends StatefulWidget {
@@ -17,7 +16,7 @@ class HomeState extends State<Home> {
 
   static List<Widget> pages = [
     ExploreScreen(),
-    const Card2(),
+    RecipesScreen(),
     const Card3()
   ];
 
