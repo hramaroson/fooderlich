@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:fooderlich/components/components.dart';
+import '../components/friend_post_list_view.dart';
 
+import '../components/components.dart';
 import '../models/models.dart';
 import '../api/mock_fooderlich_service.dart';
+
 
 class ExploreScreen extends StatelessWidget {
   final mockService = MockFooderlichService();
@@ -20,7 +22,9 @@ class ExploreScreen extends StatelessWidget {
         return ListView(
           scrollDirection: Axis.vertical,
           children: [
-            TodayRecipeListView(recipes: snapshot.data?.todayRecipes ?? [])
+            TodayRecipeListView(recipes: snapshot.data?.todayRecipes ?? []),
+            const SizedBox(height: 16),
+            FriendPostListView(friendPosts: snapshot.data?.friendPosts ?? [])
           ],
         );
       }
