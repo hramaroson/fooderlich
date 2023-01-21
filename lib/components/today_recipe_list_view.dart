@@ -22,12 +22,12 @@ class TodayRecipeListView extends StatelessWidget{
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Recipe of the Day 🍳",
-            style: Theme.of(context).textTheme.headline1
+            "Recipes of the Day 🍳",
+            style: Theme.of(context).textTheme.headline2
           ),
-          const SizedBox(height: 6),
+          const SizedBox(height: 16),
           Container(
-            height: 600,
+            height: 400,
             color: Colors.transparent,
             child: ListView.separated(
               scrollDirection: Axis.horizontal,
@@ -49,7 +49,7 @@ class TodayRecipeListView extends StatelessWidget{
   }
   Widget buildCard(ExploreRecipe recipe){
     if(recipe.cardType == RecipeCardType.card1){
-      return const Card1();
+      return Card1(recipe: recipe);
     } else if(recipe.cardType == RecipeCardType.card2){
       return const Card2();
     } else if(recipe.cardType == RecipeCardType.card3){
