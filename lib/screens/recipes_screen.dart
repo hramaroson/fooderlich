@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
 
+
+import '../components/components.dart';
 import '../models/models.dart';
 import '../api/mock_fooderlich_service.dart';
 
 class RecipesScreen extends StatelessWidget{
-  final mockService = MockFooderlichService();
+  final exploreservice = MockFooderlichService();
 
   RecipesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-    future: mockService.getExploreData(),
+      future: exploreservice.getRecipes(),
 
-    builder: (context, AsyncSnapshot<ExploreData> snapshot){
+      builder: (context, AsyncSnapshot<List<SimpleRecipe>> snapshot){
       if(snapshot.connectionState == ConnectionState.done){
-        return const Center(child: Text("Recipes screen"));
+        return RecipesGridView(recipes:  snapshot.data?? []);
       }
       else {
         return const Center(
