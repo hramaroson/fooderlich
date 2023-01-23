@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../components/friend_post_list_view.dart';
 
 import '../components/components.dart';
 import '../models/models.dart';
