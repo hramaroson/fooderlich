@@ -23,7 +23,8 @@ class MyApp extends StatelessWidget {
       theme: theme,
       home: MultiProvider(
         providers: [
-          ChangeNotifierProvider(create: (context) => TabManager())
+          ChangeNotifierProvider(create: (context) => TabManager()),
+          ChangeNotifierProvider(create: (context) => GroceryManager())
         ],
         child: const Home(title: 'Fooderlich'),
         )
