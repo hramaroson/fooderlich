@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../models/models.dart';
 
 class EmptyGroceryscreen extends StatelessWidget{
   const EmptyGroceryscreen({super.key});
@@ -31,7 +34,10 @@ class EmptyGroceryscreen extends StatelessWidget{
                 ),
                 color: Colors.green,
                 child: const Text("Browse recipes"),
-                onPressed: (){})
+                onPressed: (){
+                  Provider.of<TabManager>(context, listen: false).goToRecipes();
+                }
+              )
           ],
         ),
       )
