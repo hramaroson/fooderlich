@@ -18,7 +18,7 @@ class EmptyGroceryscreen extends StatelessWidget{
             ),
             Text(
               "No Grocery",
-              style: Theme.of(context).textTheme.headline6),
+              style: Theme.of(context).textTheme.titleLarge),
               const SizedBox(height: 16),
               const Text(
                 "Shopping for ingredients?\n"
