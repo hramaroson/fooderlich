@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:intl/intl.dart';
 
 import '../models/grocery_item.dart';
@@ -80,7 +81,8 @@ class GroceryItemScreenState extends State<GroceryItemScreen>{
             buildFieldName(),
             buildImportanceField(),
             buildDateField(context),
-            buildTimeField(context)
+            buildTimeField(context),
+            buildColorPickerField(context)
           ],
         ),
       ),
@@ -229,6 +231,54 @@ class GroceryItemScreenState extends State<GroceryItemScreen>{
           ],
         ),
         Text(_timeOfDay.format(context))
+      ],
+    );
+  }
+  
+  Widget buildColorPickerField(BuildContext context){
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Row(
+          children: [
+            Container(
+              height: 50.0,
+              width: 10.0,
+              color: _currentColor,
+            ),
+            const SizedBox(width: 8.0),
+            Text(
+              'Color',
+              style: GoogleFonts.lato(fontSize: 28.0),
+            ),
+          ],
+        ),
+        TextButton(
+          child: const Text('Select'),
+          onPressed: (){
+            showDialog(
+              context: context, 
+              builder: (context) {
+                return AlertDialog(
+                  content: BlockPicker(
+                    pickerColor: Colors.white,
+                    onColorChanged: (color){
+                      setState(() {
+                        _currentColor = color;
+                      });
+                    },
+                  ),
+                  actions: [
+                    TextButton(
+                      child: const Text('Save'),
+                      onPressed: () => Navigator.of(context).pop(),
+                    )
+                  ],
+                );
+              }
+            );
+          },
+        )
       ],
     );
   }
