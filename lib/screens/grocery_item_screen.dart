@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 
 import '../models/grocery_item.dart';
 
@@ -24,6 +25,9 @@ class GroceryItemScreenState extends State<GroceryItemScreen>{
   final _nameController = TextEditingController();
   String _name = '';
   Color _currentColor = Colors.green;
+  Importance _importance = Importance.low;
+  DateTime _dueDate = DateTime.now();
+  TimeOfDay _timeOfDay = TimeOfDay.now();
 
   @override
   void initState() {
@@ -34,6 +38,10 @@ class GroceryItemScreenState extends State<GroceryItemScreen>{
       _nameController.text = originalItem.name;
       _name = originalItem.name;
       _currentColor = originalItem.color;
+      _importance = originalItem.importance;
+      final date = originalItem.date;
+      _timeOfDay = TimeOfDay(hour: date.hour, minute: date.minute);
+
       _nameController.addListener(() {
         setState(() {
           _name = _nameController.text;
@@ -69,7 +77,10 @@ class GroceryItemScreenState extends State<GroceryItemScreen>{
         padding: const EdgeInsets.all(16.0),
         child: ListView(
           children: [
-            buildFieldName()
+            buildFieldName(),
+            buildImportanceField(),
+            buildDateField(context),
+            buildTimeField(context)
           ],
         ),
       ),
@@ -101,6 +112,123 @@ class GroceryItemScreenState extends State<GroceryItemScreen>{
           ),
         )
         
+      ],
+    );
+  }
+
+  Widget buildImportanceField(){
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Importance',
+          style: GoogleFonts.lato(fontSize: 28.0)
+        ),
+        Wrap(
+          spacing: 10,
+          children: [
+            ChoiceChip(
+              label: const Text(
+                'Low',
+                style: TextStyle(color: Colors.white)
+              ),
+              selected: _importance == Importance.low,
+              selectedColor: Colors.black,
+              onSelected: (selected){
+                setState(() => _importance = Importance.low);
+              },
+            ),
+            ChoiceChip(
+              label: const Text(
+                'Medium',
+                style: TextStyle(color: Colors.white)
+              ),
+              selected: _importance == Importance.medium,
+              selectedColor: Colors.black,
+              onSelected: (selected){
+                setState(() => _importance = Importance.medium);
+              },
+            ),
+            ChoiceChip(
+              label: const Text(
+                'High',
+                style: TextStyle(color: Colors.white)
+              ),
+              selected: _importance == Importance.high,
+              selectedColor: Colors.black,
+              onSelected: (selected){
+                setState(() => _importance = Importance.high);
+              },
+            )
+          ],
+        )
+      ],
+    );
+  }
+
+  Widget buildDateField(BuildContext context){
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+              Text(
+                'Date',
+                style:GoogleFonts.lato(fontSize: 28.0)
+              ),
+              TextButton(
+                child: const Text('Select'),
+                onPressed: () async {
+                  final currentDate = DateTime.now();
+
+                  final selectedDate = await showDatePicker(
+                    context: context, 
+                    initialDate: currentDate,
+                    firstDate: currentDate, 
+                    lastDate: DateTime(currentDate.year + 5)
+                  );
+                  setState(() {
+                    if(selectedDate != null){
+                      _dueDate = selectedDate;
+                    }
+
+                  });
+                })
+          ]),
+          Text(DateFormat('yyyy-MM-dd').format(_dueDate))
+      ],
+    );
+  }
+
+  Widget buildTimeField(BuildContext context){
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              'Time of Day',
+              style:GoogleFonts.lato(fontSize: 28.0)
+            ), 
+            TextButton(
+              child: const Text('Select'),
+              onPressed: () async {
+                final timeOfDay = await showTimePicker(
+                  context: context, 
+                  initialTime: TimeOfDay.now());
+
+                  if(timeOfDay != null){
+                    setState(() {
+                      _timeOfDay = timeOfDay;
+                    });
+                  }
+              },
+            )
+          ],
+        ),
+        Text(_timeOfDay.format(context))
       ],
     );
   }
