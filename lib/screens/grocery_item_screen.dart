@@ -29,6 +29,7 @@ class GroceryItemScreenState extends State<GroceryItemScreen>{
   Importance _importance = Importance.low;
   DateTime _dueDate = DateTime.now();
   TimeOfDay _timeOfDay = TimeOfDay.now();
+  int _currentsliderValue = 0;
 
   @override
   void initState() {
@@ -40,8 +41,11 @@ class GroceryItemScreenState extends State<GroceryItemScreen>{
       _name = originalItem.name;
       _currentColor = originalItem.color;
       _importance = originalItem.importance;
+
       final date = originalItem.date;
       _timeOfDay = TimeOfDay(hour: date.hour, minute: date.minute);
+      
+      _currentsliderValue = originalItem.quantity;
 
       _nameController.addListener(() {
         setState(() {
@@ -82,7 +86,9 @@ class GroceryItemScreenState extends State<GroceryItemScreen>{
             buildImportanceField(),
             buildDateField(context),
             buildTimeField(context),
-            buildColorPickerField(context)
+            buildColorPickerField(context),
+            const SizedBox(height: 10),
+            buildQuantityField()
           ],
         ),
       ),
@@ -212,7 +218,7 @@ class GroceryItemScreenState extends State<GroceryItemScreen>{
           children: [
             Text(
               'Time of Day',
-              style:GoogleFonts.lato(fontSize: 28.0)
+              style: GoogleFonts.lato(fontSize: 28.0)
             ), 
             TextButton(
               child: const Text('Select'),
@@ -277,6 +283,44 @@ class GroceryItemScreenState extends State<GroceryItemScreen>{
                 );
               }
             );
+          },
+        )
+      ],
+    );
+  }
+
+  Widget buildQuantityField(){
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.baseline,
+          textBaseline: TextBaseline.alphabetic,
+          children: [
+            Text(
+              'Quantity',
+              style: GoogleFonts.lato(fontSize: 28.0)
+            ),
+            const SizedBox(width: 16.0),
+            Text(
+              _currentsliderValue.toInt().toString(),
+              style: GoogleFonts.lato(fontSize: 18.0),
+            )
+          ],
+        ),
+        Slider(
+          value: _currentsliderValue.toDouble(),
+          min: 0.0,
+          max: 100.0,
+          divisions: 100,
+          activeColor: _currentColor,
+          inactiveColor: _currentColor.withOpacity(0.5),
+          label: _currentsliderValue.toInt().toString(),
+
+          onChanged: (value){
+            setState(() {
+              _currentsliderValue = value.toInt();
+            });
           },
         )
       ],
