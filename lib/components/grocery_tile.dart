@@ -43,8 +43,21 @@ class GroceryTile extends StatelessWidget {
                   const SizedBox(height: 4.0),
                   buildDate(),
                   const SizedBox(height: 4.0),
-                  buildImportance()
+                  buildImportance(),
+                  const SizedBox(height: 4.0),
               ])
+            ],
+          ),
+          Row(
+            children: [
+              Text(
+                item.quantity.toString(),
+                style: GoogleFonts.lato(
+                  decoration: textDecoration,
+                  fontSize: 21.0
+                ),
+              ),
+              buildCheckbox()
             ],
           )
         ],
@@ -85,5 +98,12 @@ class GroceryTile extends StatelessWidget {
     } else {
       throw Exception('This importance type does not exist');
     }
+  }
+  
+  Widget buildCheckbox(){
+    return Checkbox(
+      value: item.isComplete, 
+      onChanged: onComplete
+    );
   }
 }
