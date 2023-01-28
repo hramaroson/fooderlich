@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:intl/intl.dart';
+import 'package:uuid/uuid.dart';
 
 import '../models/grocery_item.dart';
 import '../components/grocery_tile.dart';
@@ -69,7 +70,26 @@ class GroceryItemScreenState extends State<GroceryItemScreen>{
           IconButton(
             icon: const Icon(Icons.check),
             onPressed: (){
-
+                final groceryItem = GroceryItem(
+                  id: widget.originalItem?.id ?? const Uuid().v1(),
+                  name: _nameController.text,
+                  color: _currentColor,
+                  importance: _importance,
+                  quantity: _currentsliderValue,
+                  date: DateTime(
+                    _dueDate.year,
+                    _dueDate.month,
+                    _dueDate.day,
+                    _timeOfDay.hour,
+                    _timeOfDay.minute
+                  )
+                );
+                
+                if(widget.isUpdating){
+                  widget.onUpdate(groceryItem);
+                } else{
+                  widget.onCreate(groceryItem);
+                }
             },
           )
         ],
@@ -135,7 +155,7 @@ class GroceryItemScreenState extends State<GroceryItemScreen>{
             )
           ),
         )
-        
+      
       ],
     );
   }
