@@ -4,6 +4,7 @@ import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:intl/intl.dart';
 
 import '../models/grocery_item.dart';
+import '../components/grocery_tile.dart';
 
 class GroceryItemScreen extends StatefulWidget{
   final Function(GroceryItem) onCreate;
@@ -82,20 +83,35 @@ class GroceryItemScreenState extends State<GroceryItemScreen>{
         padding: const EdgeInsets.all(16.0),
         child: ListView(
           children: [
-            buildFieldName(),
+            buildNameField(),
             buildImportanceField(),
             buildDateField(context),
             buildTimeField(context),
             buildColorPickerField(context),
             const SizedBox(height: 10),
-            buildQuantityField()
+            buildQuantityField(),
+            GroceryTile(
+              item: GroceryItem(
+                id: 'PreviewMode',
+                name: _name,
+                color: _currentColor,
+                importance: _importance,
+                quantity: _currentsliderValue,
+                date: DateTime(
+                  _dueDate.year,
+                  _dueDate.month,
+                  _dueDate.day,
+                  _timeOfDay.hour,
+                  _timeOfDay.minute
+                )
+              ))
           ],
         ),
       ),
     );
   }
 
-  Widget buildFieldName(){
+  Widget buildNameField(){
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
