@@ -13,6 +13,7 @@ class GroceryItem {
   final Importance importance;
   final DateTime date;
   final int quantity;
+  final bool isComplete;
 
   GroceryItem({
     required this.id, 
@@ -20,7 +21,8 @@ class GroceryItem {
     required this.color,
     required this.importance,
     required this.date, 
-    required this.quantity
+    required this.quantity,
+    this.isComplete = false
   });
 
   GroceryItem copyWith({
@@ -29,14 +31,17 @@ class GroceryItem {
     Color? color,
     Importance? importance,
     DateTime? date,
-    int? quantity}){ 
+    int? quantity,
+    bool? isComplete
+    }) { 
       return GroceryItem(
         id: id ?? this.id,
         name: name ?? this.name,
         color: color ?? this.color,
         importance: importance ?? this.importance,
         date: date ?? this.date,
-        quantity: quantity ?? this.quantity
+        quantity: quantity ?? this.quantity,
+        isComplete: isComplete ?? this.isComplete
       );
   }
 }
