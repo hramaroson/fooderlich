@@ -48,13 +48,13 @@ class GroceryItemScreenState extends State<GroceryItemScreen>{
       _timeOfDay = TimeOfDay(hour: date.hour, minute: date.minute);
       
       _currentsliderValue = originalItem.quantity;
+    }
 
-      _nameController.addListener(() {
+    _nameController.addListener(() {
         setState(() {
           _name = _nameController.text;
         });
-      });
-    }
+    });
   }
 
   @override
