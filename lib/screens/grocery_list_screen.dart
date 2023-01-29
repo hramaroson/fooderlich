@@ -26,7 +26,7 @@ class GroceryListScreen extends StatelessWidget{
 
             onComplete: (change){
               if(change != null){
-
+                manager.completeItem(index, change);
               }
             },
           );
