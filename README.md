@@ -11,4 +11,6 @@ Fooderlich app. From the book "Flutter Apprentice (Third Edition): Learn to buil
     <img src="screenshots/screenshot6.jpg" width = "180">
     <img src="screenshots/screenshot7.jpg" width = "180">
     <img src="screenshots/screenshot8.jpg" width = "180">
+    <img src="screenshots/screenshot9.jpg" width = "180">
+    <img src="screenshots/screenshot10.jpg" width = "180">
 </div>
