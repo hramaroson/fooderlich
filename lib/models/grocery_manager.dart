@@ -22,4 +22,9 @@ class GroceryManager extends ChangeNotifier{
     _groceryItems[index] = item;
     notifyListeners();
   }
+
+  void deleteItem(int index){
+    _groceryItems.removeAt(index);
+    notifyListeners();
+  }
 }
